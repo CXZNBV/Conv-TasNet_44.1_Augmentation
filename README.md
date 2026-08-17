@@ -12,23 +12,23 @@ source venv/bin/activate
 
 On Windows: venv\\Scripts\\activate
 
-2\. Install dependencies: pip install -r requirements.txt.
+2. Install dependencies: pip install -r requirements.txt.
 
-3\. Prepare your dataset:
+3. Prepare your dataset:
 a. Download original VCTK-2mix.
 b. Set the required environment variables (PowerShell example):
 $env:VCTK\_SOURCE\_DIR = "D:\\Dataset\\VCTK-2mix"   # VCTK path.
 $env:VCTK\_DATA\_BASE = "E:\\Conv-Tas Net Augmentation\\data"    # Base directory for generated datasets.
 
-4\. Generate the 44.1 kHz dataset. This creates VCTK2mix\_44k with 30,000 training mixtures (and 6k/3k val/test):
+4. Generate the 44.1 kHz dataset. This creates VCTK2mix\_44k with 30,000 training mixtures (and 6k/3k val/test):
 Run the first script: python generate\_vctk2mix.py.
 
 
 
-5\. Generate the 16 kHz version (optional, for two-stage training). This creates VCTK2mix\_16k/ from the 44.1 kHz dataset:
+5. Generate the 16 kHz version (optional, for two-stage training). This creates VCTK2mix\_16k/ from the 44.1 kHz dataset:
 Run the second script: python resample\_to\_16k.py.
 
-\## Training
+## Training
 
 1. Configurate model:
 a. Open config.py in IDE.
@@ -43,7 +43,7 @@ The best model will be saved in the checkpoint directory (checkpoints/).
 
 ## Separating
 
-1. To separate a single audio file into two sources. The script will load the best model from checkpoints/best\_model.pth and save two files:
+To separate a single audio file into two sources. The script will load the best model from checkpoints/best\_model.pth and save two files:
 python separate_audio.py \
     --input "path/to/mixture.wav" \
     --output "path/to/output_dir" \
