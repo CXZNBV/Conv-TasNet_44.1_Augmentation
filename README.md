@@ -1,64 +1,66 @@
 ﻿# Conv-TasNet Augmentation for 44.1 kHz
 
-This repository contains the training code for a modified Conv-TasNet architecture adapted for speech separation
-on the VCTK-2mix dataset at 44.1 kHz.
+This repository contains the **training** code for a modified **Conv-TasNet** architecture adapted for speech separation
+on the _VCTK-2mix_ dataset at 44.1 kHz.
 
 ## Setup
 
-1. Setup python venv in your directory.
-'''
-bash
+ Setup python venv in your directory.
+   
+```python
 python -m venv venv  
-source venv/bin/activate
-On Windows: venv\\Scripts\\activate
-'''
+venv/bin/activate
+```
+On Windows: 
+```python
+python -m venv venv
+venv\Scripts\activate
+```
+ Install dependencies: `pip install -r requirements.txt`.
 
-3. Install dependencies: 'pip install -r requirements.txt'.
+3. Prepare your dataset:
+   a. **Download** original VCTK-2mix.
+   b. Set the required environment variables (PowerShell example):
+```python
+$env:VCTK\_SOURCE\_DIR = "D:\Dataset_path\VCTK-2mix"   # VCTK path.
+$env:VCTK\_DATA\_BASE = "E:\Conv-Tas_Net_Aug_path\data"    # Base directory for generated datasets.
+```
 
-4. Prepare your dataset:
-a. Download original VCTK-2mix.
-b. Set the required environment variables (PowerShell example):
-$env:VCTK\_SOURCE\_DIR = "D:\\Dataset\\VCTK-2mix"   # VCTK path.
-$env:VCTK\_DATA\_BASE = "E:\\Conv-Tas Net Augmentation\\data"    # Base directory for generated datasets.
-
-5. Generate the 44.1 kHz dataset. This creates VCTK2mix\_44k with 30,000 training mixtures (and 6k/3k val/test):
-Run the first script: python generate\_vctk2mix.py.
-
-
+4. Generate the 44.1 kHz dataset. This creates VCTK2mix\_44k with 30,000 training mixtures (and 6k/3k val/test):
+Run the first script:
+ ```python
+python generate_vctk2mix.py
+```
 
 6. Generate the 16 kHz version (optional, for two-stage training). This creates VCTK2mix\_16k/ from the 44.1 kHz dataset:
-Run the second script: python resample\_to\_16k.py.
+Run the second script:
+```python
+python resample_to_16k.py
+```
 
 ## Training
 
 1. Configurate model:
-a. Open config.py in IDE.
-b. You can adjust the following parameters as needed: num of epochs, learning rate, model size (bn\_chan; n\_filters; hid\_chan),
-kernel param (kernel\_size; stride), segment or sample rate.
-VRAM/RAM WARNING: The default configuration uses \~5 GB of VRAM and 40–60 GB of RAM (due to dataset preloading). Adjust batch\_size or 'preload=False' in 'train.py' if memory is limited.
+a. Open `config.py` in IDE.
+b. You can adjust the following parameters as needed: _num_ of _epochs_, _learning rate_, _model size_ (bn\_chan; n\_filters; hid\_chan),
+_kernel param_ (kernel\_size; stride), _segment_ or _sample rate_.
+**VRAM/RAM WARNING**: The default configuration uses ~5 GB of VRAM and 40–60 GB of RAM (due to dataset preloading). Adjust batch_size or 'preload=False' in 'train.py' if memory is limited.
 
 2. Run training file: python train.py
 The best model will be saved in the checkpoint directory (checkpoints/).
 
-
-
 ## Separating
 
-To separate a single audio file into two sources. The script will load the best model from checkpoints/best\_model.pth and save two files:
-'''
-python separate_audio.py \
-    --input "path/to/mixture.wav" \
-    --output "path/to/output_dir" \
-    --model "path/to/best_model.pth
-'''  
+To separate a single audio file into two sources. The script will load the best model from checkpoints/best\_model.pth and save two files. 
+Run separating files:
+```python
+python separate_audio.py --input "path/to/mixture.wav" --output "path/to/output_dir" --model "path/to/best_model.pth"
+```
 
-Run separating file: 
-'''
-python separate\_audio.py
-    --input "E:\\CONV-TAS NET ENV\\test\\test\_mix.wav"
-    --output "E:\\CONV-TAS NET ENV\\test"
-    --model "E:\\CONV-TAS NET ENV\\checkpoints\\best\_model\_new.pth"
-'''
+Example: 
+```python
+python separate_audio.py --input "E:\CONV-TAS NET ENV\test\test_mix.wav" --output "E:\CONV-TAS NET ENV\test" --model "E:\CONV-TAS NET ENV\checkpoints\best_model.pth"
+```
 
 ## License
 
