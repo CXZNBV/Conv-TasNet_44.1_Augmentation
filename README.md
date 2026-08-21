@@ -1,11 +1,14 @@
 ﻿<h1 align="center">Conv-TasNet Augmentation for 44.1 kHz</h1>
 
 
-This repository contains the **training** code for a modified **Conv-TasNet** architecture adapted for speech separation
-on the _VCTK-2mix_ dataset at 44.1 kHz.
-
+This repository contains the **training code** for a modified **Conv-TasNet** architecture adapted for speech separation on the _VCTK-2mix_ dataset at 44.1 kHz. The model achieves an SI-SNRi of 13.3 dB (improvement over the mixture) and an absolute SI-SNR of 16.88 dB on ground-truth data. 
 ## Setup
 
+1. Download and extract files. 
+2. Navigate to the folder:
+```python
+cd: "D:\Conv-TasNet_44.1_Augmentation\code"
+```
  Setup python venv in your directory.
    
 ```python
