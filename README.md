@@ -1,4 +1,5 @@
-﻿# Conv-TasNet Augmentation for 44.1 kHz
+﻿<h1 align="center">Conv-TasNet Augmentation for 44.1 kHz</h1>
+
 
 This repository contains the **training** code for a modified **Conv-TasNet** architecture adapted for speech separation
 on the _VCTK-2mix_ dataset at 44.1 kHz.
@@ -66,22 +67,8 @@ python separate_audio.py --input "E:\CONV-TAS NET ENV\test\test_mix.wav" --outpu
 
 This project is licensed under the MIT License — see the LICENSE.txt for details.
 
-## Citation
+## Acknowledgments
+* ![Jusper Lee](https://github.com/JusperLee/Conv-TasNet)
 
-@article{luo2019conv,
-    title={Conv-TasNet: Surpassing Ideal Time-Frequency Magnitude Masking for Speech Separation},
-    author={Luo, Yi and Mesgarani, Nima},
-    journal={IEEE/ACM Transactions on Audio, Speech, and Language Processing},
-    year={2019}
-}
+* ![Luo Yi; Nima Mesgarani](https://github.com/naplab/Conv-TasNet)
 
-Additionally, if you use our modifications or the VCTK-2mix dataset adaptation, please consider citing this repository:
-
-
-@misc{conv-tasnet-44k,
-    author = {Tyurin, Denis},
-    title = {Conv-TasNet Augmentation for 44.1 kHz Speech Separation},
-    year = {2026},
-    publisher = {GitHub},
-    howpublished = {\url{https://github.com/CXZNBV/Conv-TasNet_44.1_Augmentation}}
-}
