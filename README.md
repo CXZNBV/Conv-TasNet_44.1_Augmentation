@@ -66,7 +66,7 @@ python separate_audio.py --input "path/to/mixture.wav" --output "path/to/output_
 
 Example: 
 ```python
-python separate_audio.py --input "E:\CONV-TAS NET ENV\test\test_mix.wav" --output "E:\CONV-TAS NET ENV\test" --model "E:\CONV-TAS NET ENV\checkpoints\best_model.pth"
+python separate_audio.py --input "E:\Conv-TasNet_44.1_Augmentation\test\test_mix.wav" --output "E:\Conv-TasNet_44.1_Augmentation\test" --model "E:\Conv-TasNet_44.1_Augmentation\checkpoints\best_model.pth"
 ```
 
 ## License
