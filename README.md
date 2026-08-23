@@ -50,7 +50,7 @@ b. You can adjust the following parameters as needed: _num_ of _epochs_, _learni
 _kernel param_ (kernel\_size; stride), _segment_ or _sample rate_. \
 **VRAM/RAM WARNING**: The default configuration uses ~5 GB of VRAM and 40–60 GB of RAM (due to dataset preloading). Adjust batch_size or 'preload=False' in 'train.py' if memory is limited.
 
-3. Run training file: \
+3. Run training file:
 ```py
 python train.py
 ```
