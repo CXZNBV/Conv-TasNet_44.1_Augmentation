@@ -26,8 +26,8 @@ venv\Scripts\activate
    a. **Download** original VCTK-2mix. \
    b. Set the required environment variables (PowerShell example):
 ```python
-$env:VCTK\SOURCE\DIR = "E:\Dataset_path\VCTK-2mix"   # VCTK path.
-$env:VCTK\DATA\BASE = "D:\Conv-TasNet_44.1_Augmentation\data"    # Base directory for generated datasets.
+$env:VCTK_SOURCE_DIR = "E:\Dataset_path\VCTK-2mix"   # VCTK path.
+$env:VCTK_DATA_BASE = "D:\Conv-TasNet_44.1_Augmentation\data"    # Base directory for generated datasets.
 ```
 
 4. Generate the 44.1 kHz dataset. This creates VCTK2mix\_44k with 30,000 training mixtures (and 6k/3k val/test): \
